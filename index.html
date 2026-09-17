@@ -1,26 +1,85 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My First Web App</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1 style="color: blue; text-align: center;">Welcome to My Web App</h1>
+    <header class="hero">
+        <div class="container">
+            <p class="welcome">MY FIRST WEB PROJECT</p>
+            <h1>Welcome to My Web App</h1>
+            <p class="intro">
+                A simple webpage created while learning web technologies.
+            </p>
+        </div>
+    </header>
 
-    <h2 style="color: green;">About Me</h2>
-    <p>My name is Shelton, and this is my first web app.</p>
+    <main class="container">
 
-    <h2 style="color: green;">My Interests</h2>
-    <p>I have an interest in technology, media and creative projects.</p>
+        <section class="cards">
 
-    <h3 style="color: purple;">Learning Web Technologies</h3>
-    <p>I am currently learning HTML and developing my understanding of how web applications are created.</p>
+            <article class="card">
+                <div class="icon">01</div>
+                <h2>About Me</h2>
+                <p>
+                    My name is Shelton, and this is my first web app.
+                    I am developing my understanding of how web applications
+                    are created.
+                </p>
+            </article>
 
-    <p>
-        Visit
-        <a href="https://www.w3schools.com/">W3Schools</a>
-        to learn more about web development.
-    </p>
+            <article class="card">
+                <div class="icon">02</div>
+                <h2>My Interests</h2>
+                <p>
+                    I have an interest in technology, media and creative
+                    projects. These interests encourage me to explore
+                    different digital technologies.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="icon">03</div>
+                <h2>Learning Web Technologies</h2>
+                <p>
+                    I am currently learning HTML and CSS and developing
+                    my understanding of how websites and web applications
+                    are designed.
+                </p>
+            </article>
+
+        </section>
+
+        <section class="learning-section">
+            <div>
+                <p class="section-label">KEEP LEARNING</p>
+                <h2>Learning Web Development</h2>
+                <p>
+                    I am using online resources to improve my knowledge
+                    of HTML, CSS and web development.
+                </p>
+            </div>
+
+            <a 
+                href="https://www.w3schools.com/"
+                target="_blank"
+                class="button">
+                Visit W3Schools
+            </a>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>My First Web App | Created by Shelton</p>
+    </footer>
 
 </body>
 </html>
