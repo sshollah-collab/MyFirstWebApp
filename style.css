@@ -307,8 +307,14 @@ footer p {
     .form-section {
         padding: 20px;
     }
-}.form-message {
+.form-message {
     margin-top: 15px;
     color: #166534;
+    font-weight: bold;
+}
+
+.topic-message {
+    margin-top: 10px;
+    color: #173f67;
     font-weight: bold;
 }
