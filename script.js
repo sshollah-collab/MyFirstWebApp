@@ -1,3 +1,15 @@
+const topic = document.getElementById("topic");
+const topicMessage = document.getElementById("topicMessage");
+
+topic.addEventListener("change", function () {
+    topicMessage.textContent =
+        `You selected ${topic.options[topic.selectedIndex].text}. Let's keep learning!`;
+});const contactHeading = document.getElementById("contactHeading");
+
+topic.addEventListener("change", function () {
+    contactHeading.textContent =
+        `Let's talk about ${topic.options[topic.selectedIndex].text}`;
+});
 const form = document.querySelector(".form-section form");
 const formMessage = document.getElementById("formMessage");
 
