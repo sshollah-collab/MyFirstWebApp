@@ -338,4 +338,20 @@ footer p {
     width: 400px;
     height: auto;
     border-radius: 12px;
-}
+}const duckButton = document.getElementById("duckButton");
+const duckResult = document.getElementById("duckResult");
+
+duckButton.addEventListener("click", function () {
+    fetch("https://random-d.uk/api/random")
+        .then(response => response.json())
+        .then(data => {
+            duckResult.innerHTML = `
+                <img src="${data.url}" alt="Random duck image">
+            `;
+        })
+        .catch(error => {
+            duckResult.textContent =
+                "Sorry, the duck image could not be loaded.";
+            console.error(error);
+        });
+});
