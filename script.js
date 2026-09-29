@@ -28,4 +28,20 @@ form.addEventListener("submit", function (event) {
     formMessage.classList.add("success");
 
     form.reset();
+});const duckButton = document.getElementById("duckButton");
+const duckResult = document.getElementById("duckResult");
+
+duckButton.addEventListener("click", function () {
+    fetch("https://random-d.uk/api/random")
+        .then(response => response.json())
+        .then(data => {
+            duckResult.innerHTML = `
+                <img src="${data.url}" alt="Random duck image">
+            `;
+        })
+        .catch(error => {
+            duckResult.textContent =
+                "Sorry, the duck image could not be loaded.";
+            console.error(error);
+        });
 });
