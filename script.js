@@ -1,47 +1,341 @@
-const topic = document.getElementById("topic");
-const topicMessage = document.getElementById("topicMessage");
 
-topic.addEventListener("change", function () {
-    topicMessage.textContent =
-        `You selected ${topic.options[topic.selectedIndex].text}. Let's keep learning!`;
-});const contactHeading = document.getElementById("contactHeading");
+}/* ------------------------------
+   General page styling
+------------------------------ */
 
-topic.addEventListener("change", function () {
-    contactHeading.textContent =
-        `Let's talk about ${topic.options[topic.selectedIndex].text}`;
-});
-const form = document.querySelector(".form-section form");
-const formMessage = document.getElementById("formMessage");
+* {
+    box-sizing: border-box;
+}
 
-form.addEventListener("submit", function (event) {
-    event.preventDefault();
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f3f6fa;
+    color: #243447;
+    line-height: 1.6;
+}
 
-    const name = document.getElementById("name").value;
-    const topicSelect = document.getElementById("topic");
 
-    const topicText =
-        topicSelect.options[topicSelect.selectedIndex].text;
+/* ------------------------------
+   Main container
+------------------------------ */
 
-    formMessage.textContent =
-        `Thank you, ${name}. Your message about ${topicText} has been received.`;
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
 
-    formMessage.classList.add("success");
 
-    form.reset();
-});const duckButton = document.getElementById("duckButton");
-const duckResult = document.getElementById("duckResult");
+/* ------------------------------
+   Header / Hero section
+------------------------------ */
 
-duckButton.addEventListener("click", function () {
-    fetch("https://random-d.uk/api/random")
-        .then(response => response.json())
-        .then(data => {
-            duckResult.innerHTML = `
-                <img src="${data.url}" alt="Random duck image">
-            `;
-        })
-        .catch(error => {
-            duckResult.textContent =
-                "Sorry, the duck image could not be loaded.";
-            console.error(error);
-        });
-});
+.hero {
+    background: linear-gradient(135deg, #12355b, #1d70a2);
+    color: white;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.welcome {
+    margin: 0 0 10px;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 48px;
+    line-height: 1.2;
+}
+
+.intro {
+    max-width: 600px;
+    margin: 20px auto 0;
+    font-size: 18px;
+}
+
+
+/* ------------------------------
+   Cards
+------------------------------ */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin: 50px 0;
+}
+
+.card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #1d70a2;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
+
+.icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e5f2fa;
+    color: #12355b;
+    border-radius: 50%;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    margin-top: 0;
+    color: #12355b;
+    font-size: 23px;
+}
+
+.card p {
+    margin-bottom: 0;
+    color: #52606d;
+}
+
+
+/* ------------------------------
+   Learning section
+------------------------------ */
+
+.learning-section {
+    background-color: white;
+    padding: 40px;
+    margin-bottom: 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.learning-section h2 {
+    margin: 5px 0 10px;
+    color: #12355b;
+}
+
+.learning-section p {
+    margin: 0;
+    color: #52606d;
+}
+
+.section-label {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: #1d70a2 !important;
+}
+
+
+/* ------------------------------
+   Button
+------------------------------ */
+
+.button {
+    display: inline-block;
+    background-color: #12355b;
+    color: white;
+    padding: 13px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.button:hover {
+    background-color: #1d70a2;
+}
+
+
+/* ------------------------------
+   Footer
+------------------------------ */
+
+footer {
+    background-color: #12355b;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+/* ------------------------------
+   Responsive design
+   Tablet
+------------------------------ */
+
+@media (max-width: 800px) {
+
+    .cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .learning-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+/* ------------------------------
+   Responsive design
+   Mobile
+------------------------------ */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .hero {
+        padding: 50px 15px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .intro {
+        font-size: 16px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin: 30px 0;
+    }
+
+    .card {
+        padding: 25px;
+    }
+
+    .learning-section {
+        padding: 30px 25px;
+        margin-bottom: 30px;
+    }
+
+    .button {
+        width: 100%;
+        text-align: center;
+    }
+}
+/* ------------------------------
+   Contact form styling
+------------------------------ */
+
+.form-section {
+    background-color: #ffffff;
+    margin: 40px 0;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(36, 52, 71, 0.08);
+}
+
+.form-section h2 {
+    color: #173f67;
+    margin-top: 0;
+}
+
+.form-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.form-section label {
+    font-weight: bold;
+    color: #243447;
+    margin-top: 8px;
+}
+
+.form-section input,
+.form-section select,
+.form-section textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font: inherit;
+    background-color: #f8fafc;
+}
+
+.form-section input:focus,
+.form-section select:focus,
+.form-section textarea:focus {
+    outline: 2px solid #3b82f6;
+    border-color: #3b82f6;
+}
+
+.form-section textarea {
+    resize: vertical;
+}
+
+.form-section button {
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+@media (max-width: 600px) {
+    .form-section {
+        padding: 20px;
+    }
+}.form-message {
+    margin-top: 15px;
+    color: #166534;
+    font-weight: bold;
+}.topic-message {
+    margin-top: 10px;
+    color: #173f67;
+    font-weight: bold;
+}.api-section {
+    background-color: #ffffff;
+    margin: 40px 0;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(36, 52, 71, 0.08);
+    text-align: center;
+}
+
+.api-section h2 {
+    color: #173f67;
+    margin-top: 0;
+}
+
+.duck-result {
+    margin-top: 25px;
+}
+
+.duck-result img {
+    max-width: 100%;
+    width: 400px;
+    height: auto;
+    border-radius: 12px;
+}
