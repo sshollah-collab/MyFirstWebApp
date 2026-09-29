@@ -42,26 +42,27 @@ topic.addEventListener("change", function () {
 
 // Week 5 - JavaScript API
 
-const duckButton = document.getElementById("duckButton");
-const duckResult = document.getElementById("duckResult");
+const factButton = document.getElementById("factButton");
+const factResult = document.getElementById("factResult");
 
-duckButton.addEventListener("click", function () {
+factButton.addEventListener("click", function () {
 
-    fetch("https://random-d.uk/api/random")
+    fetch("https://www.drivebird.com/api/facts/random")
         .then(response => response.json())
         .then(data => {
 
-            const imageUrl = data.url.replace("http://", "https://");
+            const fact = data.data[0];
 
-duckResult.innerHTML = `
-    <img src="${imageUrl}" alt="Random duck image">
-`;
+            factResult.innerHTML = `
+                <h3>${fact.title}</h3>
+                <p>${fact.fact}</p>
+            `;
 
         })
         .catch(error => {
 
-            duckResult.textContent =
-                "Sorry, the duck image could not be loaded.";
+            factResult.textContent =
+                "Sorry, the fact could not be loaded.";
 
             console.error(error);
         });
