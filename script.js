@@ -51,9 +51,11 @@ duckButton.addEventListener("click", function () {
         .then(response => response.json())
         .then(data => {
 
-            duckResult.innerHTML = `
-                <img src="${data.url}" alt="Random duck image">
-            `;
+            const imageUrl = data.url.replace("http://", "https://");
+
+duckResult.innerHTML = `
+    <img src="${imageUrl}" alt="Random duck image">
+`;
 
         })
         .catch(error => {
